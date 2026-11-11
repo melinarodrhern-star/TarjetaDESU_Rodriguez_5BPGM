@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Digital DeSu Quiz</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #dff7f5;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s;
+        }
+
+        .tarjeta {
+            background-color: white;
+            width: 350px;
+            text-align: center;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px gray;
+            transition: background-color 0.5s;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #16bebe;
+        }
+
+        h1 {
+            color: #087f83;
+        }
+
+        p {
+            color: gray;
+            line-height: 1.5;
+        }
+
+        button {
+            padding: 12px;
+            margin: 8px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            opacity: 0.85;
+        }
+
+        .btn1 {
+            background-color: #16bebe;
+        }
+
+        .btn2 {
+            background-color: #7653a6;
+        }
+
+        #tema {
+            font-size: 12px;
+            color: #888;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tarjeta" id="tarjeta">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+             alt="Imagen de perfil">
+
+        <h1 id="nombre">Melina Aimee</h1>
+
+        <p id="descripcion">
+            Estudiante, amante del anime y creadora de DeSu Quiz.
+        </p>
+
+        <button class="btn1" onclick="saludar()">
+            Sobre mí
+        </button>
+
+        <button class="btn2" onclick="cambiarEstilo()">
+            Cambiar apariencia
+        </button>
+
+        <p id="tema">Tema actual: Turquesa</p>
+
+    </div>
+
+    <script>
+
+        // INFORMACIÓN SOBRE MÍ
+        function saludar() {
+
+            alert(
+                "¡Hola! Soy Melina Aimee. 💜\n\n" +
+                "Soy estudiante y creadora de DeSu Quiz, " +
+                "un proyecto dedicado al mundo del anime.\n\n" +
+                "Me gusta el diseño, la creatividad y aprender " +
+                "cosas nuevas sobre tecnología.\n\n" +
+                "¡Gracias por visitar mi tarjeta digital!"
+            );
+
+        }
+
+
+        // TEMAS DE APARIENCIA
+        let temaActual = 0;
+
+        const temas = [
+
+            {
+                nombre: "Turquesa",
+                fondo: "#dff7f5",
+                tarjeta: "#ffffff",
+                titulo: "#087f83",
+                texto: "#555555",
+                boton1: "#16bebe",
+                boton2: "#7653a6"
+            },
+
+            {
+                nombre: "Morado Anime",
+                fondo: "#e6d9f5",
+                tarjeta: "#ffffff",
+                titulo: "#7653a6",
+                texto: "#654c78",
+                boton1: "#9b72cc",
+                boton2: "#54377e"
+            },
+
+            {
+                nombre: "Rosa Pastel",
+                fondo: "#ffe0eb",
+                tarjeta: "#fff7fa",
+                titulo: "#c04b7c",
+                texto: "#80576b",
+                boton1: "#ec78a4",
+                boton2: "#a34d91"
+            },
+
+            {
+                nombre: "Azul Nocturno",
+                fondo: "#172c46",
+                tarjeta: "#263d59",
+                titulo: "#9edcff",
+                texto: "#e1eaf5",
+                boton1: "#327cae",
+                boton2: "#7653a6"
+            }
+
+        ];
+
+
+        // CAMBIAR APARIENCIA
+        function cambiarEstilo() {
+
+            temaActual++;
+
+            if (temaActual >= temas.length) {
+                temaActual = 0;
+            }
+
+            let tema = temas[temaActual];
+
+            document.body.style.backgroundColor = tema.fondo;
+
+            document.getElementById("tarjeta").style.backgroundColor =
+                tema.tarjeta;
+
+            document.getElementById("nombre").style.color =
+                tema.titulo;
+
+            document.getElementById("descripcion").style.color =
+                tema.texto;
+
+            document.querySelector(".btn1").style.backgroundColor =
+                tema.boton1;
+
+            document.querySelector(".btn2").style.backgroundColor =
+                tema.boton2;
+
+            document.querySelector("img").style.borderColor =
+                tema.boton1;
+
+            document.getElementById("tema").style.color =
+                tema.texto;
+
+            document.getElementById("tema").innerHTML =
+                "Tema actual: " + tema.nombre;
+
+        }
+
+    </script>
+
+</body>
+</html>
